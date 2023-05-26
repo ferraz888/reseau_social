@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {% if age > 18 %}
+        <p>tu est majeur</p>
+    {% else %}
+        <p>tu est mineur</p>
+    {% endif %}
+    {{ age }}
+
+    {% set fruit = ["banane", "pomme", "cerise"] %}
+    <ul>
+        {% for fruit in fruit %}
+            <li>{{ fruit }}</li>
+        {% endfor %}
+    </ul>
+
+    <button class="btn btn-primary">button</button>
+{% endblock %}
