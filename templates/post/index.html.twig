@@ -1,25 +1,25 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-<div class="d-flex justify-content-around flex-warp mt-5">
-<div class="card" style="width: 18rem;">
-	<img src="..." class="card-img-top" alt="...">
-	<div class="card-body">
-		<h5 class="card-title">Card title</h5>
-		<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-		<a href="#" class="btn btn-primary">Go somewhere</a>
+	<div class="d-flex justify-content-around flex-warp mt-5 ">
+		{% for post in posts %}
+			<div class="card" style="width: 18rem;">
+				{% if post.image %}
+					<img src={{post.image}} alt={{post.title}}/>
+				{% endif %}
+				<div class="card-body">
+					{% if post.title %}
+						<h5 class="card-title">{{ post.title }}
+						</h5>
+					{% endif %}
+
+					<p class="card-text">{{post.content}}</p>
+					<a href="Post/delete/{{post.id}}" class="btn btn-primary bg-danger">suprimer</a>
+					<a href="Post/update/{{post.id}}" class="btn btn-primary bg-warning">modifier</a>
+
+				</div>
+			</div>
+		{% endfor %}
 	</div>
-</div>
-
-<div class="card" style="width: 18rem;">
-	<img src="..." class="card-img-top" alt="...">
-	<div class="card-body">
-		<h5 class="card-title">Card title</h5>
-		<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-		<a href="#" class="btn btn-primary">Go somewhere</a>
-	</div>
-</div>
-
-
-</div>
 
 {% endblock %}
+
